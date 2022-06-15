@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3000/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  <script defer="" src="./React App_files/bundle.js"></script><style>body {
+	background: linear-gradient(90deg, #7474BF 10%, #348AC7 90%);
+}
+.weather_wrapper{
+	width: 400px;
+	margin: 100px auto;
+}
+.weatherCard{
+	width: 400px;
+	height: 200px;
+	font-family: 'Open Sans';
+	position: relative;
+}
+.currentTemp{
+	width: 220px;
+	height: 240px;
+	background: rgb(41, 41, 41);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.currentWeather{
+	width: 200px;
+	height: 240px;
+	background: rgb(237, 237, 237);
+	margin: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.temp{
+	font-size: 80px;
+	text-align: center;
+	display: block;
+	font-weight: 300;
+	color: rgb(255, 255, 255);
+	padding: 20px 0 0;
+}
+.location{
+	color: rgb(255, 255, 255);
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 30px;
+	display: block;
+}
+.conditions{
+	font-size: 130px;
+	display: flex;
+  flex-direction: column;
+	padding: 10px 0 0;
+	text-align: center;
+  align-items: center;
+  
+}
+.info{
+	width: 200px;
+	height: 70px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background: rgb(42, 178, 234);
+	font-weight: 700;
+	color: rgb(255, 255, 255);
+	text-align: center;
+}
+
+.sky{
+  width: 50%;
+  position: absolute;
+  left:10px;
+  color: white;
+}
+
+.humidity {
+	width: 50%;
+	position: absolute;
+	left: 10px;
+	word-spacing: 60px;
+	top: 3px;
+  font-size: 20px;
+}
+
+.wind {
+	width: 50%;
+	right: 10px;
+	position: absolute;
+	word-spacing: 60px;
+	top: 3px;
+  font-size: 20px;
+}
+
+
+
+.weather_wrapper .search {
+  text-align: center;
+  padding: 1rem;
+}
+
+.weather_wrapper input {
+  width: 330px;
+  padding: .7rem 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255, 0.8);
+  background: rgba(255,255,255, 0.1);
+  color: #f8f8f8;
+}
+
+::placeholder {
+  color: #f8f8f8;
+}
+
+
+
+/* 
+   
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+.app {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: rgba(0,0,0,0.4);
+  color: #fff;
+}
+
+.app:before {
+  content: '';
+  background: url('./assets/sunset.jpg') no-repeat center center/cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.app .search {
+  text-align: center;
+  padding: 1rem;
+}
+
+.app input {
+  padding: .7rem 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255, 0.8);
+  background: rgba(255,255,255, 0.1);
+  color: #f8f8f8;
+}
+
+::placeholder {
+  color: #f8f8f8;
+}
+
+.container {
+  max-width: 700px;
+  height: 700px;
+  margin: auto;
+  padding: 0 1rem;
+  position: relative;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.app .top {
+  width: 100%;
+  margin: 1rem auto;
+}
+
+.app .description {
+  position: relative;
+  right: -90%;
+  transform-origin: 0 0;
+  transform: rotate(269deg);
+}
+
+.app .bottom {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 100%;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: rgba(255,255,255, 0.2);
+}
+
+.bold {
+  font-weight: 700;
+} */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9pbmRleC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Q0FDQyw0REFBNEQ7QUFDN0Q7QUFDQTtDQUNDLFlBQVk7Q0FDWixrQkFBa0I7QUFDbkI7QUFDQTtDQUNDLFlBQVk7Q0FDWixhQUFhO0NBQ2Isd0JBQXdCO0NBQ3hCLGtCQUFrQjtBQUNuQjtBQUNBO0NBQ0MsWUFBWTtDQUNaLGFBQWE7Q0FDYiwyQkFBMkI7Q0FDM0Isa0JBQWtCO0NBQ2xCLE1BQU07Q0FDTixPQUFPO0FBQ1I7QUFDQTtDQUNDLFlBQVk7Q0FDWixhQUFhO0NBQ2IsOEJBQThCO0NBQzlCLFNBQVM7Q0FDVCxrQkFBa0I7Q0FDbEIsTUFBTTtDQUNOLFFBQVE7QUFDVDtBQUNBO0NBQ0MsZUFBZTtDQUNmLGtCQUFrQjtDQUNsQixjQUFjO0NBQ2QsZ0JBQWdCO0NBQ2hCLHlCQUF5QjtDQUN6QixpQkFBaUI7QUFDbEI7QUFDQTtDQUNDLHlCQUF5QjtDQUN6QixrQkFBa0I7Q0FDbEIseUJBQXlCO0NBQ3pCLGdCQUFnQjtDQUNoQixlQUFlO0NBQ2YsY0FBYztBQUNmO0FBQ0E7Q0FDQyxnQkFBZ0I7Q0FDaEIsYUFBYTtFQUNaLHNCQUFzQjtDQUN2QixpQkFBaUI7Q0FDakIsa0JBQWtCO0VBQ2pCLG1CQUFtQjs7QUFFckI7QUFDQTtDQUNDLFlBQVk7Q0FDWixZQUFZO0NBQ1osa0JBQWtCO0NBQ2xCLFNBQVM7Q0FDVCxRQUFRO0NBQ1IsNkJBQTZCO0NBQzdCLGdCQUFnQjtDQUNoQix5QkFBeUI7Q0FDekIsa0JBQWtCO0FBQ25COztBQUVBO0VBQ0UsVUFBVTtFQUNWLGtCQUFrQjtFQUNsQixTQUFTO0VBQ1QsWUFBWTtBQUNkOztBQUVBO0NBQ0MsVUFBVTtDQUNWLGtCQUFrQjtDQUNsQixVQUFVO0NBQ1Ysa0JBQWtCO0NBQ2xCLFFBQVE7RUFDUCxlQUFlO0FBQ2pCOztBQUVBO0NBQ0MsVUFBVTtDQUNWLFdBQVc7Q0FDWCxrQkFBa0I7Q0FDbEIsa0JBQWtCO0NBQ2xCLFFBQVE7RUFDUCxlQUFlO0FBQ2pCOzs7O0FBSUE7RUFDRSxrQkFBa0I7RUFDbEIsYUFBYTtBQUNmOztBQUVBO0VBQ0UsWUFBWTtFQUNaLHFCQUFxQjtFQUNyQixpQkFBaUI7RUFDakIsbUJBQW1CO0VBQ25CLHdDQUF3QztFQUN4QyxrQ0FBa0M7RUFDbEMsY0FBYztBQUNoQjs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7Ozs7QUFJQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztHQW9HRyIsInNvdXJjZXNDb250ZW50IjpbImJvZHkge1xuXHRiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoOTBkZWcsICM3NDc0QkYgMTAlLCAjMzQ4QUM3IDkwJSk7XG59XG4ud2VhdGhlcl93cmFwcGVye1xuXHR3aWR0aDogNDAwcHg7XG5cdG1hcmdpbjogMTAwcHggYXV0bztcbn1cbi53ZWF0aGVyQ2FyZHtcblx0d2lkdGg6IDQwMHB4O1xuXHRoZWlnaHQ6IDIwMHB4O1xuXHRmb250LWZhbWlseTogJ09wZW4gU2Fucyc7XG5cdHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cbi5jdXJyZW50VGVtcHtcblx0d2lkdGg6IDIyMHB4O1xuXHRoZWlnaHQ6IDI0MHB4O1xuXHRiYWNrZ3JvdW5kOiByZ2IoNDEsIDQxLCA0MSk7XG5cdHBvc2l0aW9uOiBhYnNvbHV0ZTtcblx0dG9wOiAwO1xuXHRsZWZ0OiAwO1xufVxuLmN1cnJlbnRXZWF0aGVye1xuXHR3aWR0aDogMjAwcHg7XG5cdGhlaWdodDogMjQwcHg7XG5cdGJhY2tncm91bmQ6IHJnYigyMzcsIDIzNywgMjM3KTtcblx0bWFyZ2luOiAwO1xuXHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdHRvcDogMDtcblx0cmlnaHQ6IDA7XG59XG4udGVtcHtcblx0Zm9udC1zaXplOiA4MHB4O1xuXHR0ZXh0LWFsaWduOiBjZW50ZXI7XG5cdGRpc3BsYXk6IGJsb2NrO1xuXHRmb250LXdlaWdodDogMzAwO1xuXHRjb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpO1xuXHRwYWRkaW5nOiAyMHB4IDAgMDtcbn1cbi5sb2NhdGlvbntcblx0Y29sb3I6IHJnYigyNTUsIDI1NSwgMjU1KTtcblx0dGV4dC1hbGlnbjogY2VudGVyO1xuXHR0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuXHRmb250LXdlaWdodDogNzAwO1xuXHRmb250LXNpemU6IDMwcHg7XG5cdGRpc3BsYXk6IGJsb2NrO1xufVxuLmNvbmRpdGlvbnN7XG5cdGZvbnQtc2l6ZTogMTMwcHg7XG5cdGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG5cdHBhZGRpbmc6IDEwcHggMCAwO1xuXHR0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIFxufVxuLmluZm97XG5cdHdpZHRoOiAyMDBweDtcblx0aGVpZ2h0OiA3MHB4O1xuXHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdGJvdHRvbTogMDtcblx0cmlnaHQ6IDA7XG5cdGJhY2tncm91bmQ6IHJnYig0MiwgMTc4LCAyMzQpO1xuXHRmb250LXdlaWdodDogNzAwO1xuXHRjb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpO1xuXHR0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5za3l7XG4gIHdpZHRoOiA1MCU7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgbGVmdDoxMHB4O1xuICBjb2xvcjogd2hpdGU7XG59XG5cbi5odW1pZGl0eSB7XG5cdHdpZHRoOiA1MCU7XG5cdHBvc2l0aW9uOiBhYnNvbHV0ZTtcblx0bGVmdDogMTBweDtcblx0d29yZC1zcGFjaW5nOiA2MHB4O1xuXHR0b3A6IDNweDtcbiAgZm9udC1zaXplOiAyMHB4O1xufVxuXG4ud2luZCB7XG5cdHdpZHRoOiA1MCU7XG5cdHJpZ2h0OiAxMHB4O1xuXHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdHdvcmQtc3BhY2luZzogNjBweDtcblx0dG9wOiAzcHg7XG4gIGZvbnQtc2l6ZTogMjBweDtcbn1cblxuXG5cbi53ZWF0aGVyX3dyYXBwZXIgLnNlYXJjaCB7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgcGFkZGluZzogMXJlbTtcbn1cblxuLndlYXRoZXJfd3JhcHBlciBpbnB1dCB7XG4gIHdpZHRoOiAzMzBweDtcbiAgcGFkZGluZzogLjdyZW0gMS41cmVtO1xuICBmb250LXNpemU6IDEuMnJlbTtcbiAgYm9yZGVyLXJhZGl1czogMjVweDtcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyNTUsMjU1LDI1NSwgMC44KTtcbiAgYmFja2dyb3VuZDogcmdiYSgyNTUsMjU1LDI1NSwgMC4xKTtcbiAgY29sb3I6ICNmOGY4Zjg7XG59XG5cbjo6cGxhY2Vob2xkZXIge1xuICBjb2xvcjogI2Y4ZjhmODtcbn1cblxuXG5cbi8qIFxuICAgXG5AaW1wb3J0IHVybCgnaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3MyP2ZhbWlseT1PdXRmaXQ6d2dodEAxMDA7MjAwOzMwMDs0MDA7NTAwOzYwMDs3MDAmZmFtaWx5PVBvcHBpbnM6aXRhbCx3Z2h0QDAsMTAwOzAsMjAwOzAsMzAwOzAsNDAwOzAsNTAwOzAsNjAwOzAsNzAwOzAsODAwOzAsOTAwOzEsMTAwOzEsMjAwOzEsMzAwOzEsNDAwOzEsNTAwOzEsNjAwOzEsNzAwOzEsODAwOzEsOTAwJmRpc3BsYXk9c3dhcCcpO1xuXG4qIHtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgbWFyZ2luOiAwO1xuICBwYWRkaW5nOiAwO1xufVxuXG5ib2R5IHtcbiAgZm9udC1mYW1pbHk6ICdPdXRmaXQnLCAnU2Vnb2UgVUknLCAnUm9ib3RvJywgJ094eWdlbicsXG4gICAgJ1VidW50dScsICdDYW50YXJlbGwnLCAnRmlyYSBTYW5zJywgJ0Ryb2lkIFNhbnMnLCAnSGVsdmV0aWNhIE5ldWUnLFxuICAgIHNhbnMtc2VyaWY7XG4gIC13ZWJraXQtZm9udC1zbW9vdGhpbmc6IGFudGlhbGlhc2VkO1xuICAtbW96LW9zeC1mb250LXNtb290aGluZzogZ3JheXNjYWxlO1xufVxuXG5wIHtcbiAgZm9udC1zaXplOiAxLjZyZW07XG59XG5cbmgxIHtcbiAgZm9udC1zaXplOiA2cmVtO1xufVxuXG4uYXBwIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwdmg7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLDAsMCwwLjQpO1xuICBjb2xvcjogI2ZmZjtcbn1cblxuLmFwcDpiZWZvcmUge1xuICBjb250ZW50OiAnJztcbiAgYmFja2dyb3VuZDogdXJsKCcuL2Fzc2V0cy9zdW5zZXQuanBnJykgbm8tcmVwZWF0IGNlbnRlciBjZW50ZXIvY292ZXI7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgdG9wOiAwO1xuICBsZWZ0OiAwO1xuICB6LWluZGV4OiAtMTtcbn1cblxuLmFwcCAuc2VhcmNoIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBwYWRkaW5nOiAxcmVtO1xufVxuXG4uYXBwIGlucHV0IHtcbiAgcGFkZGluZzogLjdyZW0gMS41cmVtO1xuICBmb250LXNpemU6IDEuMnJlbTtcbiAgYm9yZGVyLXJhZGl1czogMjVweDtcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgyNTUsMjU1LDI1NSwgMC44KTtcbiAgYmFja2dyb3VuZDogcmdiYSgyNTUsMjU1LDI1NSwgMC4xKTtcbiAgY29sb3I6ICNmOGY4Zjg7XG59XG5cbjo6cGxhY2Vob2xkZXIge1xuICBjb2xvcjogI2Y4ZjhmODtcbn1cblxuLmNvbnRhaW5lciB7XG4gIG1heC13aWR0aDogNzAwcHg7XG4gIGhlaWdodDogNzAwcHg7XG4gIG1hcmdpbjogYXV0bztcbiAgcGFkZGluZzogMCAxcmVtO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHRvcDogMTAlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG59XG5cbi5hcHAgLnRvcCB7XG4gIHdpZHRoOiAxMDAlO1xuICBtYXJnaW46IDFyZW0gYXV0bztcbn1cblxuLmFwcCAuZGVzY3JpcHRpb24ge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHJpZ2h0OiAtOTAlO1xuICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDA7XG4gIHRyYW5zZm9ybTogcm90YXRlKDI2OWRlZyk7XG59XG5cbi5hcHAgLmJvdHRvbSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtZXZlbmx5O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHdpZHRoOiAxMDAlO1xuICBtYXJnaW46IDFyZW0gYXV0bztcbiAgcGFkZGluZzogMXJlbTtcbiAgYm9yZGVyLXJhZGl1czogMTJweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyNTUsMjU1LDI1NSwgMC4yKTtcbn1cblxuLmJvbGQge1xuICBmb250LXdlaWdodDogNzAwO1xufSAqLyJdLCJzb3VyY2VSb290IjoiIn0= */</style><style>.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9BcHAuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsY0FBYztFQUNkLG9CQUFvQjtBQUN0Qjs7QUFFQTtFQUNFO0lBQ0UsNENBQTRDO0VBQzlDO0FBQ0Y7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsaUJBQWlCO0VBQ2pCLGFBQWE7RUFDYixzQkFBc0I7RUFDdEIsbUJBQW1CO0VBQ25CLHVCQUF1QjtFQUN2Qiw2QkFBNkI7RUFDN0IsWUFBWTtBQUNkOztBQUVBO0VBQ0UsY0FBYztBQUNoQjs7QUFFQTtFQUNFO0lBQ0UsdUJBQXVCO0VBQ3pCO0VBQ0E7SUFDRSx5QkFBeUI7RUFDM0I7QUFDRiIsInNvdXJjZXNDb250ZW50IjpbIi5BcHAge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5BcHAtbG9nbyB7XG4gIGhlaWdodDogNDB2bWluO1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbn1cblxuQG1lZGlhIChwcmVmZXJzLXJlZHVjZWQtbW90aW9uOiBuby1wcmVmZXJlbmNlKSB7XG4gIC5BcHAtbG9nbyB7XG4gICAgYW5pbWF0aW9uOiBBcHAtbG9nby1zcGluIGluZmluaXRlIDIwcyBsaW5lYXI7XG4gIH1cbn1cblxuLkFwcC1oZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjgyYzM0O1xuICBtaW4taGVpZ2h0OiAxMDB2aDtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGZvbnQtc2l6ZTogY2FsYygxMHB4ICsgMnZtaW4pO1xuICBjb2xvcjogd2hpdGU7XG59XG5cbi5BcHAtbGluayB7XG4gIGNvbG9yOiAjNjFkYWZiO1xufVxuXG5Aa2V5ZnJhbWVzIEFwcC1sb2dvLXNwaW4ge1xuICBmcm9tIHtcbiAgICB0cmFuc2Zvcm06IHJvdGF0ZSgwZGVnKTtcbiAgfVxuICB0byB7XG4gICAgdHJhbnNmb3JtOiByb3RhdGUoMzYwZGVnKTtcbiAgfVxufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><style>.react-clock {
+  display: block;
+  position: relative;
+}
+.react-clock,
+.react-clock *,
+.react-clock *:before,
+.react-clock *:after {
+  box-sizing: border-box;
+}
+.react-clock__face {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.react-clock__hand {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+}
+.react-clock__hand__body {
+  position: absolute;
+  background-color: black;
+  transform: translateX(-50%);
+}
+.react-clock__mark {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+}
+.react-clock__mark__body {
+  position: absolute;
+  background-color: black;
+  transform: translateX(-50%);
+}
+.react-clock__mark__number {
+  position: absolute;
+  left: -40px;
+  width: 80px;
+  text-align: center;
+}
+.react-clock__second-hand__body {
+  background-color: red;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL25vZGVfbW9kdWxlcy9yZWFjdC1jbG9jay9kaXN0L0Nsb2NrLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGNBQWM7RUFDZCxrQkFBa0I7QUFDcEI7QUFDQTs7OztFQU1FLHNCQUFzQjtBQUN4QjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLE1BQU07RUFDTixTQUFTO0VBQ1QsT0FBTztFQUNQLFFBQVE7RUFDUix1QkFBdUI7RUFDdkIsa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsTUFBTTtFQUNOLFNBQVM7RUFDVCxTQUFTO0VBQ1QsVUFBVTtBQUNaO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsdUJBQXVCO0VBQ3ZCLDJCQUEyQjtBQUM3QjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLE1BQU07RUFDTixTQUFTO0VBQ1QsU0FBUztFQUNULFVBQVU7QUFDWjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLHVCQUF1QjtFQUN2QiwyQkFBMkI7QUFDN0I7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixXQUFXO0VBQ1gsV0FBVztFQUNYLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UscUJBQXFCO0FBQ3ZCIiwic291cmNlc0NvbnRlbnQiOlsiLnJlYWN0LWNsb2NrIHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cbi5yZWFjdC1jbG9jayxcbi5yZWFjdC1jbG9jayAqLFxuLnJlYWN0LWNsb2NrICo6YmVmb3JlLFxuLnJlYWN0LWNsb2NrICo6YWZ0ZXIge1xuICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gIC13ZWJraXQtYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbn1cbi5yZWFjdC1jbG9ja19fZmFjZSB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdG9wOiAwO1xuICBib3R0b206IDA7XG4gIGxlZnQ6IDA7XG4gIHJpZ2h0OiAwO1xuICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xufVxuLnJlYWN0LWNsb2NrX19oYW5kIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDA7XG4gIGJvdHRvbTogMDtcbiAgbGVmdDogNTAlO1xuICByaWdodDogNTAlO1xufVxuLnJlYWN0LWNsb2NrX19oYW5kX19ib2R5IHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjaztcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKC01MCUpO1xufVxuLnJlYWN0LWNsb2NrX19tYXJrIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDA7XG4gIGJvdHRvbTogMDtcbiAgbGVmdDogNTAlO1xuICByaWdodDogNTAlO1xufVxuLnJlYWN0LWNsb2NrX19tYXJrX19ib2R5IHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjaztcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKC01MCUpO1xufVxuLnJlYWN0LWNsb2NrX19tYXJrX19udW1iZXIge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGxlZnQ6IC00MHB4O1xuICB3aWR0aDogODBweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLnJlYWN0LWNsb2NrX19zZWNvbmQtaGFuZF9fYm9keSB7XG4gIGJhY2tncm91bmQtY29sb3I6IHJlZDtcbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */</style></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="weather_wrapper"><div class="search"><input type="text" value=""></div><div class="weatherCard"><div class="currentTemp"><span class="temp">25°</span><span class="location">Deva</span><span class="sky">Clouds </span></div><div class="currentWeather"><span class="conditions"><time class="react-clock" datetime="2022-06-10T10:58:16.261Z" style="width: 150px; height: 150px;"><div class="react-clock__face"><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(6deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(12deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(18deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(24deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(36deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(42deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(48deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(54deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(66deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(72deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(78deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(84deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(96deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(102deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(108deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(114deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(126deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(132deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(138deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(144deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(156deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(162deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(168deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(174deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(186deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(192deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(198deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(204deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(216deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(222deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(228deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(234deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(246deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(252deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(258deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(264deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(276deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(282deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(288deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(294deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(306deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(312deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(318deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(324deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(336deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(342deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(348deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__minute-mark" style="transform: rotate(354deg);"><div class="react-clock__mark__body react-clock__minute-mark__body" style="width: 1px; top: 0px; bottom: 97%;"></div></div><div class="react-clock__mark react-clock__hour-mark" style="transform: rotate(30deg);"><div class="react-clock__mark__body react-clock__hour-mark__body" style="width: 3px; top: 0px; bottom: 95%;"></div></div><div class="react-clock__mark react-clock__hour-mark" style="transform: rotate(60deg);"><div class="react-clock__mark__body react-clock__hour-mark__body" style="width: 3px; top: 0px; bottom: 95%;"></div></div><div class="react-clock__mark react-clock__hour-mark" style="transform: rotate(90deg);"><div class="react-clock__mark__body react-clock__hour-mark__body" style="width: 3px; top: 0px; bottom: 95%;"></div></div><div class="react-clock__mark react-clock__hour-mark" style="transform: rotate(120deg);"><div class="react-clock__mark__body react-clock__hour-mark__body" style="width: 3px; top: 0px; bottom: 95%;"></div></div><div class="react-clock__mark react-clock__hour-mark" style="transform: rotate(150deg);"><div class="react-clock__mark__body react-clock__hour-mark__body" style="width: 3px; top: 0px; bottom: 95%;"></div></div><div class="react-clock__mark react-clock__hour-mark" style="transform: rotate(180deg);"><div class="react-clock__mark__body react-clock__hour-mark__body" style="width: 3px; top: 0px; bottom: 95%;"></div></div><div class="react-clock__mark react-clock__hour-mark" style="transform: rotate(210deg);"><div class="react-clock__mark__body react-clock__hour-mark__body" style="width: 3px; top: 0px; bottom: 95%;"></div></div><div class="react-clock__mark react-clock__hour-mark" style="transform: rotate(240deg);"><div class="react-clock__mark__body react-clock__hour-mark__body" style="width: 3px; top: 0px; bottom: 95%;"></div></div><div class="react-clock__mark react-clock__hour-mark" style="transform: rotate(270deg);"><div class="react-clock__mark__body react-clock__hour-mark__body" style="width: 3px; top: 0px; bottom: 95%;"></div></div><div class="react-clock__mark react-clock__hour-mark" style="transform: rotate(300deg);"><div class="react-clock__mark__body react-clock__hour-mark__body" style="width: 3px; top: 0px; bottom: 95%;"></div></div><div class="react-clock__mark react-clock__hour-mark" style="transform: rotate(330deg);"><div class="react-clock__mark__body react-clock__hour-mark__body" style="width: 3px; top: 0px; bottom: 95%;"></div></div><div class="react-clock__mark react-clock__hour-mark" style="transform: rotate(360deg);"><div class="react-clock__mark__body react-clock__hour-mark__body" style="width: 3px; top: 0px; bottom: 95%;"></div></div></div><div class="react-clock__hand react-clock__hour-hand" style="transform: rotate(419.027deg);"><div class="react-clock__hand__body react-clock__hour-hand__body" style="width: 4px; top: 25%; bottom: 45%;"></div></div><div class="react-clock__hand react-clock__minute-hand" style="transform: rotate(5029.6deg);"><div class="react-clock__hand__body react-clock__minute-hand__body" style="width: 2px; top: 15%; bottom: 45%;"></div></div><div class="react-clock__hand react-clock__second-hand" style="transform: rotate(20976deg);"><div class="react-clock__hand__body react-clock__second-hand__body" style="width: 1px; top: 5%; bottom: 45%;"></div></div></time></span><div class="info"><span class="humidity">50 %</span><span class="wind"> 7.01 MPH</span></div></div></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  
+
+</body></html>
