@@ -9,7 +9,7 @@ const API_KEY = "ab74b62cf7d069845eee97c51511ef56";
 
 function App() {
   const [data, setData] = useState({});
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState("Bucharest");
   const [time, setTime] = useState(new Date());
   const [weatherData, setWeatherData] = useState({});
 
@@ -30,18 +30,21 @@ function App() {
     }
   }
 
-  useEffect(() => getLonLat(), []);
+  useEffect(() => {
+    getLonLat();
+  }, []);
 
-  const urlCity = `https://api.openweathermap.org/data/2.5/weather?q=${
-    location || "Timisoara"
-  }&units=metric&appid=ab74b62cf7d069845eee97c51511ef56`;
+  useEffect(() => {
+    const urlCity = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${API_KEY}`;
+
+    axios.get(urlCity).then((response) => {
+      setData(response.data);
+    });
+  }, [location]);
 
   const searchLocation = (event) => {
     if (event.key === "Enter") {
-      axios.get(urlCity).then((response) => {
-        setData(response.data);
-      });
-      setLocation("");
+      setLocation(event.target.value);
     }
   };
 
@@ -61,6 +64,7 @@ function App() {
   return (
     <div className="weather_wrapper">
       <div className="search">
+        <p>Search new location:</p>
         <input
           type="text"
           value={location}
@@ -75,7 +79,11 @@ function App() {
             <span className="temp">{data.main.temp.toFixed()}&deg;</span>
           ) : (
             <div className="tailSpin">
-              <TailSpin color="#00BFFF" height={80} width={80} />
+              <TailSpin
+                color="#00BFFF"
+                height={80}
+                width={80}
+              />
             </div>
           )}
 
@@ -106,7 +114,11 @@ function App() {
             <span className="temp">{weatherData.main.temp.toFixed()}&deg;</span>
           ) : (
             <div className="tailSpin">
-              <TailSpin color="#00BFFF" height={80} width={80} />
+              <TailSpin
+                color="#00BFFF"
+                height={80}
+                width={80}
+              />
             </div>
           )}
 
