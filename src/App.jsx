@@ -64,7 +64,7 @@ function App() {
   return (
     <div className="weather_wrapper">
       <div className="search">
-        <p>Search new location:</p>
+        <p className="search-input">Search new location:</p>
         <input
           type="text"
           value={location}

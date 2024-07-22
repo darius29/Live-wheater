@@ -37,7 +37,11 @@
   }
 }
 
-.tailSpin{
+.search-input {
+  font-size: 28px;
+}
+
+.tailSpin {
   display: flex;
   justify-content: center;
   margin-top: 80px;
